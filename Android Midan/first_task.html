@@ -1,0 +1,82 @@
+  <!-- Views -->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class -->
+      <div class="view view-main">
+        <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-fixed toolbar-fixed">
+          <!-- Page, "data-page" contains page name -->
+          <div data-page="first_task" class="page">
+             <!-- Top Navbar. In Material theme it should be inside of the page-->
+     <div class="page-content infinite-scroll" data-distance="100">
+
+   <div class="content-block margin-right-left"><!-- container responsive -->
+        <div class="row underline">
+      <div class="col-70 tablet-20  main_logo">
+        <a href="tasks.html"><img src="images/small_logo.png"></a>
+      </div>
+      <div class="col-100 tablet-80">
+        <ul class="top_menu">
+         <li><a href="tasks.html"><span>رجوع</span> <i class="fa fa-chevron-left"> </i></a></li> 
+
+          <li><a href="index.html"> <span>تسجيل الخروج</span> <i class="fa fa-sign-out"></i> </li></a>
+          <li><a href="#"> <span>مرحبا أحمد</span> <i class="fa fa-user"></i> </a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="row no-gutter">
+     <div class="col-15 tablet-5 nav-button">
+      <p><a href="#" data-panel="right" class="open-panel">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+      </a></p>
+      </div>
+      <div class="col-85 tablet-95 title_section">
+         <h1>المهام</h1>
+         <ul>
+           <li><h4>إستلام عملية رقابية</h4></li>
+           <li><h4 class="active" >المهام الموزعة</h4></li>
+         </ul>
+      </div>
+    </div>
+
+    <div class="row no-gutter">
+      <div class="col-60 tablet-90 sub_title_section">
+        <div class="title_icon"><img src="images/icons/s2.png"></div>
+        <h2>المهام الموزعة</h2>
+      </div>
+
+      <div class="col-40 tablet-10 query">
+        <h4>إستعلام <i class="fa fa-question-circle"></i></h4>
+      </div>
+    </div>
+
+<div class="row">
+
+    <table class="col-100 tablet-100" id="hmmTabel">
+      <tr >
+        <th >التسلسل</th>
+        <th >رقم المهمة</th>
+        <th >اسم الواجهة</th>
+        <th >تاريخ المهمة هجري</th>
+        <th style="background-color:#1A2635"></th>
+      </tr>
+
+    </table>
+
+</div>
+
+
+
+<div id="general-ajax-load" class="" style="text-align:center">
+      <img src="loadingAjax.gif">
+ </div>
+
+  </div> <!-- end container responsive -->   
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>

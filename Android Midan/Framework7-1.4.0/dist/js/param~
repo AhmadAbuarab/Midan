@@ -1,0 +1,35 @@
+{
+	"Action_Update_Conditions_Input":{
+			"ActionMobile":{
+				"ActivitySerialNumber":"<param::activitySerialNumber>",
+				"ActivityUID":"<param::activityUId>",
+				"InspectSubType":"<param::inspectSubType>",
+				"LiceNumber":"<param::liceNumber>",
+				"PrimaryOwnerId":"<param::primaryOwnerId>",
+				"SourcesName":"<param::sourcesName>",
+				"Status":"<param::status>",
+				"StoreMainActivity":"<param::storeMainActivity>",
+				"StoreNameARA":"<param::storeNameAra>",
+				"StoreNameENU":"<param::storeNameEnu>",
+				"StoreOrder":"<param::storeOrder>",
+				"StoreRegNo":[],
+				"StoreStartDate":[],
+				"StoreStartHijriDate":[],
+				"StoreSubActivity":"<param::storeSubActivity>",
+				"Type":"<param::type>",
+				"ListOfActivitiesCond":[<param::listOfActivitiesCond>]
+			},
+		"ActionId":"<param::actionId>"
+	}
+}
+
+
+{
+ActivityClassification: "<param::activityClassification>",
+Conditions: "<param::conditions>",
+IdenticalFlag: "<param::identicalFlag>",
+Name: "<param::name>",
+Note: "<param::note>",
+ParRowId: "<param::parRowId>",
+Type: "<param::type>"
+}

@@ -1,0 +1,479 @@
+{
+	"Action_Update_Conditions_Input":{
+			"ActionMobile":{
+				"ActivitySerialNumber":"<param::activitySerialNumber>",
+				"ActivityUID":"<param::activityUId>",
+				"InspectSubType":"<param::inspectSubType>",
+				"LiceNumber":"<param::liceNumber>",
+				"PrimaryOwnerId":"<param::primaryOwnerId>",
+				"SourcesName":"<param::sourcesName>",
+				"Status":"<param::status>",
+				"StoreMainActivity":"<param::storeMainActivity>",
+				"StoreNameARA":"<param::storeNameAra>",
+				"StoreNameENU":"<param::storeNameEnu>",
+				"StoreOrder":"<param::storeOrder>",
+				"StoreRegNo":[],
+				"StoreStartDate":[],
+				"StoreStartHijriDate":[],
+				"StoreSubActivity":"<param::storeSubActivity>",
+				"Type":"<param::type>",
+				"ListOfActivitiesCond":[<param::listOfActivitiesCond>]
+			},
+		"ActionId":"<param::actionId>"
+	}
+}
+
+
+{
+ActivityClassification: "<param::activityClassification>",
+Conditions: "<param::conditions>",
+IdenticalFlag: "<param::identicalFlag>",
+Name: "<param::name>",
+Note: "<param::note>",
+ParRowId: "<param::parRowId>",
+Type: "<param::type>"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   var condParams = {
+            "Action_Update_Conditions_Input":{
+                    "ActionMobile":{
+                        "ActivitySerialNumber":"<param::activitySerialNumber>",
+                        "ActivityUID":"<param::activityUId>",
+                        "InspectSubType":"<param::inspectSubType>",
+                        "LiceNumber":"<param::liceNumber>",
+                        "PrimaryOwnerId":"<param::primaryOwnerId>",
+                        "SourcesName":"<param::sourcesName>",
+                        "Status":"<param::status>",
+                        "StoreMainActivity":"<param::storeMainActivity>",
+                        "StoreNameARA":"<param::storeNameAra>",
+                        "StoreNameENU":"<param::storeNameEnu>",
+                        "StoreOrder":"<param::storeOrder>",
+                        "StoreRegNo":[],
+                        "StoreStartDate":[],
+                        "StoreStartHijriDate":[],
+                        "StoreSubActivity":"<param::storeSubActivity>",
+                        "Type":"<param::type>",
+                        "ListOfActivitiesCond":[<param::listOfActivitiesCond>]
+                    },
+                "ActionId":"<param::actionId>"
+            }
+};
+
+
+
+
+
+
+"ListOfActivitiesCond":[<param::listOfActivitiesCond>]
+
+
+
+
+
+
+{{#each Conditions}}
+
+		
+								ActivityClassification: "{{ActivityClassification}}",
+								Conditions: "{{Conditions}}",
+								IdenticalFlag: "{{IdenticalFlag}}",
+								Name: "{{Name}}",
+								Note: "{{Note}}",
+								ParRowId: "{{ParRowId}}",
+								Type: "{{Typ}}"
+						    {{/each}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						    {
+		            "Action_Update_Conditions_Input":{
+                    "ActionMobile":{
+                        "ActivitySerialNumber":{{conditionsReq['request']['ActivitySerialNumber']}},
+                        "ActivityUID":{{conditionsReq['request']['ActivityUID']}},
+                        "InspectSubType":{{conditionsReq['request']['InspectSubType']}},
+                        "LiceNumber":{{conditionsReq['request']['LiceNumber']}},
+                        "PrimaryOwnerId":{{conditionsReq['request']['PrimaryOwnerId']}},
+                        "SourcesName":{{conditionsReq['request']['SourcesName']}},
+                        "Status":{{conditionsReq['request']['Status']}},
+                        "StoreMainActivity":{{conditionsReq['request']['StoreMainActivity']}},
+                        "StoreNameARA":{{conditionsReq['request']['StoreNameARA']}},
+                        "StoreNameENU":{{conditionsReq['request']['StoreNameENU']}},
+                        "StoreOrder":{{conditionsReq['request']['StoreOrder']}},
+                        "StoreRegNo":[],
+                        "StoreStartDate":[],
+                        "StoreStartHijriDate":[],
+                        "StoreSubActivity":{{conditionsReq['request']['StoreSubActivity']}},
+                        "Type":{{conditionsReq['request']['Type']}},
+                        "ListOfActivitiesCond":"hero"
+                        ,
+                    },
+                "ActionId":{{conditionsReq['request']['ActionId']}}
+            }
+
+
+
+
+
+****************************************************************************************
+
+
+
+
+	{
+		            "Action_Update_Conditions_Input":{
+                    "ActionMobile":{
+                        "ActivitySerialNumber":91600013795,
+                        "ActivityUID":1-EDUN4U,
+                        "InspectSubType":رقابة محلات تجارية,
+                        "LiceNumber":10015,
+                        "PrimaryOwnerId":1-1NG1Z,
+                        "SourcesName":emad,
+                        "Status":اكتمل,
+                        "StoreMainActivity":تجارية,
+                        "StoreNameARA":emad,
+                        "StoreNameENU":emad,
+                        "StoreOrder":5,
+                        "StoreRegNo":[],
+                        "StoreStartDate":[],
+                        "StoreStartHijriDate":[],
+                        "StoreSubActivity":أجهزة تبريد,
+                        "Type":إستلام عملية رقابية,
+                        "ListOfActivitiesCond":
+		                        {
+									ActivityClassification:,
+									Conditions:اشتراط مع مهام متابعة جزاء صلاحية مشرف QA Do Not Change ,
+									IdenticalFlag:Y,
+									Name:this.1-871511339 ,
+									Note:this.,
+									ParRowId:1-EDUN4U ,
+									Type:1-871511339
+									}
+
+		                        {
+									ActivityClassification:,
+									Conditions:اشتراط مع مهام متابعة جزاء صلاحية مراقبQA Do Not Change ,
+									IdenticalFlag:Y,
+									Name:this.1-871511343 ,
+									Note:this.,
+									ParRowId:1-EDUN4U ,
+									Type:1-871511343
+									}
+
+		                        {
+									ActivityClassification:,
+									Conditions:اشتراط محلات 1 ,
+									IdenticalFlag:Y,
+									Name:this.1-871511347 ,
+									Note:this.,
+									ParRowId:1-EDUN4U ,
+									Type:1-871511347
+									}
+
+		                        {
+									ActivityClassification:,
+									Conditions:اشتراط محلات 2 ,
+									IdenticalFlag:Y,
+									Name:this.1-871511351 ,
+									Note:this.,
+									ParRowId:1-EDUN4U ,
+									Type:1-871511351
+									}
+
+		                        {
+									ActivityClassification:,
+									Conditions:اشتراط محلات 3 ,
+									IdenticalFlag:Y,
+									Name:this.1-871511355 ,
+									Note:this.,
+									ParRowId:1-EDUN4U ,
+									Type:1-871511355
+									}
+
+		                        {
+									ActivityClassification:,
+									Conditions:اشتراط محلات QA ,
+									IdenticalFlag:Y,
+									Name:this.1-871511359 ,
+									Note:this.,
+									ParRowId:1-EDUN4U ,
+									Type:1-871511359
+									}
+
+                        ,
+                    },
+                "ActionId":
+            }
+
+
+
+	}
+
+
+
+
+
+
+	*******************************************
+
+
+
+		{
+		            "Action_Update_Conditions_Input":{
+                    "ActionMobile":{
+                        "ActivitySerialNumber":91600013795,
+                        "ActivityUID":1-EDUN4U,
+                        "InspectSubType":رقابة محلات تجارية,
+                        "LiceNumber":10015,
+                        "PrimaryOwnerId":1-1NG1Z,
+                        "SourcesName":emad,
+                        "Status":اكتمل,
+                        "StoreMainActivity":تجارية,
+                        "StoreNameARA":emad,
+                        "StoreNameENU":emad,
+                        "StoreOrder":5,
+                        "StoreRegNo":[],
+                        "StoreStartDate":[],
+                        "StoreStartHijriDate":[],
+                        "StoreSubActivity":أجهزة تبريد,
+                        "Type":إستلام عملية رقابية,
+                        "ListOfActivitiesCond":[
+		                        {
+									ActivityClassification:,
+									Conditions:اشتراط مع مهام متابعة جزاء صلاحية مشرف QA Do Not Change ,
+									IdenticalFlag:Y,
+									Name:this.1-871511339 ,
+									Note:this.,
+									ParRowId:1-EDUN4U ,
+									Type:1-871511339
+									},
+
+		                        {
+									ActivityClassification:,
+									Conditions:اشتراط مع مهام متابعة جزاء صلاحية مراقبQA Do Not Change ,
+									IdenticalFlag:Y,
+									Name:this.1-871511343 ,
+									Note:this.,
+									ParRowId:1-EDUN4U ,
+									Type:1-871511343
+									},
+
+		                        {
+									ActivityClassification:,
+									Conditions:اشتراط محلات 1 ,
+									IdenticalFlag:Y,
+									Name:this.1-871511347 ,
+									Note:this.,
+									ParRowId:1-EDUN4U ,
+									Type:1-871511347
+									}
+
+		                        {
+									ActivityClassification:,
+									Conditions:اشتراط محلات 2 ,
+									IdenticalFlag:Y,
+									Name:this.1-871511351 ,
+									Note:this.,
+									ParRowId:1-EDUN4U ,
+									Type:1-871511351
+									}
+
+		                        {
+									ActivityClassification:,
+									Conditions:اشتراط محلات 3 ,
+									IdenticalFlag:Y,
+									Name:this.1-871511355 ,
+									Note:this.,
+									ParRowId:1-EDUN4U ,
+									Type:1-871511355
+									}
+
+		                        {
+									ActivityClassification:,
+									Conditions:اشتراط محلات QA ,
+									IdenticalFlag:Y,
+									Name:this.1-871511359 ,
+									Note:this.,
+									ParRowId:1-EDUN4U ,
+									Type:1-871511359
+									}
+
+                        ,
+                    },
+                "ActionId":,
+            }
+
+
+
+	}
+
+
+
+
+
+
+	$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$44
+
+
+
+
+	<script id="conditions-template-update" type="text/x-handlebars-template">
+	{
+		            "Action_Update_Conditions_Input":{
+                    "ActionMobile":{
+                        "ActivitySerialNumber":{{conditionsReq.ActivitySerialNumber}},
+                        "ActivityUID":{{conditionsReq.ActivityUID}},
+                        "InspectSubType":{{conditionsReq.InspectSubType}},
+                        "LiceNumber":{{conditionsReq.LiceNumber}},
+                        "PrimaryOwnerId":{{conditionsReq.PrimaryOwnerId}},
+                        "SourcesName":{{conditionsReq.SourcesName}},
+                        "Status":{{conditionsReq.Status}},
+                        "StoreMainActivity":{{conditionsReq.StoreMainActivity}},
+                        "StoreNameARA":{{conditionsReq.StoreNameARA}},
+                        "StoreNameENU":{{conditionsReq.StoreNameENU}},
+                        "StoreOrder":{{conditionsReq.StoreOrder}},
+                        "StoreRegNo":[],
+                        "StoreStartDate":[],
+                        "StoreStartHijriDate":[],
+                        "StoreSubActivity":{{conditionsReq.StoreSubActivity}},
+                        "Type":{{conditionsReq.Type}},
+                        "ListOfActivitiesCond": [
+		                        {{#each conditionsReq.ListOfHmmMaidanActivitiesCond.HmmMaidanActivitiesCond}} 
+
+		                        {
+									ActivityClassification:{{this.ActivityClassification}},
+									Conditions:{{this.Conditions}} ,
+									IdenticalFlag:{{this.IdenticalFlag }},
+									Name:this.{{Name}} ,
+									Note:this.{{Note}},
+									ParRowId:{{this.ParRowId}} ,
+									Type:{{this.Type }} ,
+									{{#if @last}} } {{else}} }, {{/if}}
+
+		                        {{/each}}
+		                    ] 
+                        ,
+                    },
+                "ActionId":{{conditionsReq.ActionId}},
+            }
+
+
+
+	}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+
+
+
+
+  var myparams= {    
+                "activitySerialNumber": "91600013795",
+                "activityUId": "1-EDUN4U",
+                "inspectSubType": "رقابة محلات تجارية",
+                "liceNumber": "10015",
+                "primaryOwnerId": "1-1NG1Z",
+                "sourcesName": "emad",
+                "status": "اكتمل",
+                "storeMainActivity": "تجارية",
+                "storeNameAra": "emad",
+                "storeNameEnu": "emad",
+                "storeOrder": "5",
+                "StoreRegNo": [],
+                "StoreStartDate": [],
+                "StoreStartHijriDate": [],
+                "storeSubActivity": "أجهزة تبريد",
+                "type": "إستلام عملية رقابية",
+                "listOfActivitiesCond": "{
+                        "ActivityClassification": "",
+                        "Conditions": "اشتراط محلات QA",
+                        "IdenticalFlag": "Y",
+                        "Name": "1-871511359",
+                        "Note": "",
+                        "ParRowId": "1-EDUN4U",
+                        "Type": "1-871511359"
+                    }"
+               
+                    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                       
+                "activitySerialNumber": "91600013795",
+                "activityUId": "1-EDUN4U",
+                "inspectSubType": "رقابة محلات تجارية",
+                "liceNumber": "10015",
+                "primaryOwnerId": "1-1NG1Z",
+                "sourcesName": "emad",
+                "status": "اكتمل",
+                "storeMainActivity": "تجارية",
+                "storeNameAra": "emad",
+                "storeNameEnu": "emad",
+                "storeOrder": "5",
+                "StoreRegNo": [],
+                "StoreStartDate": [],
+                "StoreStartHijriDate": [],
+                "storeSubActivity": "أجهزة تبريد",
+                "type": "إستلام عملية رقابية",
+                "listOfActivitiesCond": "{
+                        "ActivityClassification": "",
+                        "Conditions": "اشتراط محلات QA",
+                        "IdenticalFlag": "Y",
+                        "Name": "1-871511359",
+                        "Note": "",
+                        "ParRowId": "1-EDUN4U",
+                        "Type": "1-871511359"
+                    }",
+               

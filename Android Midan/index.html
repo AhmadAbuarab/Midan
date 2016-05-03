@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <!-- Your app title -->
+    <title>Midan</title>
+
+    <link rel="stylesheet" href="Framework7-1.4.0/dist/css/framework7.material.css">
+    <link rel="stylesheet" href="Framework7-1.4.0/dist/css/framework7.material.colors.min.css">
+    <link rel="stylesheet" href="Framework7-1.4.0/dist/css/my-app.css">
+
+
+    <script id="activity-template" type="text/x-handlebars-template">
+
+	    {{#each Activities}}
+	    	<tr>
+	    		<td>{{StoreOrder}}</td>
+	    	 	<td>{{ActivitySerialNumber}}</td>
+	    	 	<td>{{StoreNameARA}}</td>
+	    	 	<td>{{StoreStartHijriDate}}</td>
+	    	 	<td><a href="receive-operation.html" data-activity='{{ToJson this}}' data-activitySN="{{ActivityUID}}" class="button button-raised button-fill color-green">فتح المهمة</a></td>
+
+	    	</tr>
+	    {{/each}}
+
+    </script>
+
+
+ <script id="conditions-template" type="text/x-handlebars-template">
+
+	    {{#each Conditions}}
+	    	<tr data-json='{{ToJson this}}'>
+	    		<td>{{Conditions}}</td>
+
+	    	 {{#if (is_status IdenticalFlag 'Y')}}
+                  <td><input type = 'checkbox' data-flag='true' style='width:50px;' checked></td>
+                {{else}}
+                  <td><input type = 'checkbox' data-flag='false' style='width:50px;'></td>
+             {{/if}}
+	    	</tr>
+	    {{/each}}
+
+  </script>
+
+
+<script id="conditions-template-update" type="text/x-handlebars-template">
+{"Action_Update_Conditions_Input":{
+                    "ActionMobile":{
+                        "ActivitySerialNumber":"{{conditionsReq.ActivitySerialNumber}}",
+                        "ActivityUID":"{{conditionsReq.ActivityUID}}",
+                        "InspectSubType":"{{conditionsReq.InspectSubType}}",
+                        "LiceNumber":"{{conditionsReq.LiceNumber}}",
+                        "PrimaryOwnerId":"{{conditionsReq.PrimaryOwnerId}}",
+                        "SourcesName":"{{conditionsReq.SourcesName}}",
+                        "Status":"{{conditionsReq.Status}}",
+                        "StoreMainActivity":"{{conditionsReq.StoreMainActivity}}",
+                        "StoreNameARA":"{{conditionsReq.StoreNameARA}}",
+                        "StoreNameENU":"{{conditionsReq.StoreNameENU}}",
+                        "StoreOrder":"{{conditionsReq.StoreOrder}}",
+                        "StoreRegNo":[],
+                        "StoreStartDate":[],
+                        "StoreStartHijriDate":[],
+                        "StoreSubActivity":"{{conditionsReq.StoreSubActivity}}",
+                        "Type":"{{conditionsReq.Type}}",
+                        "ListOfActivitiesCond": [
+		                        {{#each conditionsReq.ListOfHmmMaidanActivitiesCond.HmmMaidanActivitiesCond}} 
+		                        {
+									"ActivityClassification":"{{this.ActivityClassification}}",
+									"Conditions":"{{this.Conditions}}" ,
+									"IdenticalFlag":"{{this.IdenticalFlag }}",
+									"Name":"{{this.Name}}" ,
+									"Note":"{{this.Note}}",
+									"ParRowId":"{{this.ParRowId}}",
+									"Type":"{{this.Type }}"
+									{{#if @last}} 
+								} {{else}} }, {{/if}}
+
+		                        {{/each}}
+		                    ] 
+                    },
+                "ActionId":"{{conditionsReq.ActionId}}"
+            }
+	}
+</script>
+
+<script id="violations-template" type="text/x-handlebars-template">
+
+    <table class="col-100 tablet-100" id="hmmTabel">
+        <tr >
+        <th >المخالفات</th>
+        <th>قيمة المخالفة </th>
+      </tr>
+      {{#each Violations}}
+
+
+ 
+
+
+
+        <tr >
+          <td data-popup=".violationDetails{{ViolationId}}" 
+            data-vioid = "{{ViolationId}}"
+            data-factortype   ="{{FactorType}}" 
+            data-damagesize  ="{{DamageSize}}"
+            data-violationsize  ="{{ViolationSize}}"
+            data-violationnumber   ="{{ViolationNumber}}"
+           class="open-popup"><span> {{ViolationDesc}} / {{PaneltyAfterDiscount}}<span> 
+          {{#each ListOfHmmMaidanActivityPenalty}}
+             <span style="color:blue;">{{PenaltyDesc}} </span> 
+             <span style="color:red;"> 'القيمة' {{PenaltyTotalValue}}  </span>
+          {{/each}}
+          </td>
+          <td><span id="panelty"> {{TotalVaiolationValue}} </span></td>
+
+        
+
+ 
+       
+
+
+        </tr>
+      {{/each}}
+      <tr>
+      <td>المجموع</td>
+      <td>{{totalValue}}</td>
+      </tr>
+
+    </table>
+  </script>
+
+<div class="violationPopup">
+<script id="violations-popup-template" type="text/x-handlebars-template">
+{{#each Violations}}
+<div class="popup violationDetails{{ViolationId}}" style="height:366px !important;">
+<div class="list-block {{ViolationId}}">
+
+
+        <div class="item-inner factorType">
+          <div class="item-title label">مدى الضرر</div>
+          <div class="item-input">
+            <select id="factorType" data-vioname='FactorType'>
+                   {{option FactorType "['حالة وفاه','لا يوجد','حالة تسمم']"}}
+            </select>
+          </div>
+        </div>
+
+
+
+        <div class="item-inner damageSize">
+          <div class="item-title label">حجم الضرر</div>
+          <div class="item-input">
+            <select id="damageSize" data-vioname='DamageSize'>
+                {{option DamageSize "['بسيط','متوسط','كبير']"}}
+            </select>
+          </div>
+        </div>
+
+      
+
+        <div class="item-inner violationsize">
+          <div class="item-title label">حجم المخالفات</div>
+          <div class="item-input">
+            <select id="violationsize" data-vioname='ViolationSize'>
+                {{option ViolationSize "['بسيط','متوسط','كبير']"}}
+            </select>
+          </div>
+        </div>
+
+
+        <div class="item-inner violationNumber">
+          <div class="item-title label">العدد المخالف</div>
+          <div class="item-input">
+            <select id="violationNumber" data-vioname='violationNumber'>
+                  {{option ViolationNumber "['1','2','3','4','5']"}}
+            </select>
+          </div>
+        </div>
+
+        
+         
+
+<div class="row">
+  <div class="col-10"></div>
+  <div class="col-33">
+      <a href="#" class="saveViolations button button-fill color-green">حفظ</a>
+  </div> 
+  <div class="col-33">   
+      <a href="#" class="button button-fill color-red close-popup">الغاء</a>
+  </div>    
+  <div class="col-10"></div> 
+</div>
+
+</div>
+
+ </div>
+
+{{/each}}
+
+</script>
+</div>
+  </head>
+  <body>
+  
+    <!-- Views -->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class -->
+
+
+      <div class="view view-main">
+        <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-fixed toolbar-fixed">
+          <!-- Page, "data-page" contains page name -->
+          <div data-page="index" class="page navbar-fixed toolbar-fixed">
+     <div class="page-content infinite-scroll" data-distance="100">
+
+            <div class="mainLogin">
+              <div class="hmmLogo">
+                <img src="images/logo.png" alt="HMM-Logo">
+              </div>
+              <h1 class="title-login">تسجيل الدخول <div class="green-line"></div></h1>
+
+              <form>
+                <input class="userNameLogin" type="text" placeholder="&#xf007; أسم المستخدم">
+                <input class="passwordLogin" type="password" placeholder="&#xf084; كلمة المرور">
+               <a href="tasks.html"> <button class="login-btn">دخول</button></a>
+              </form>
+            </div>
+  
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--slide_menu-->
+    <div class="panel-overlay"></div>
+        <div class="panel panel-right panel-cover">
+    
+        <div class="colse_menu close-panel"><a href="#" class="close-panel"><i class="fa fa-times"></i></a></div>
+
+        <div class="hmm-logo-menu">
+           <img src="images/small_logo.png">
+        </div>
+        <ul>
+          <li><a href="#"><img src="images/icons/s1.png"><span>إستلام عملية رقابية</span></a></li>
+          <li><a href="#"><img src="images/icons/s2.png"><span>المهام الموزعة</span></a></li>
+          <li><a href="#"><img src="images/icons/s3.png"><span>إستلام عملية</span></a></li>
+          <li><a href="#"><img src="images/icons/s4.png"><span>موقع العملية الجغرافي</span></a></li>
+          <li><a href="#"><img src="images/icons/s5.png"><span>الإشتراطات</span></a></li>
+          <li><a href="#"><img src="images/icons/s6.png"><span>المخالفات</span></a></li>
+          <li><a href="#"><img src="images/icons/s7.png"><span>لملاحظات</span></a></li>
+          <li><a href="#"><img src="images/icons/s8.png"><span>المرفقات</span></a></li>
+          <li><a href="#"><img src="images/icons/s9.png"><span>التأكيد</span></a></li>
+          <li><a href="#"><img src="images/icons/s10.png"><span>الرسائل</span></a></li>
+        </ul>
+
+  </div>
+  <!--end slide_menu-->
+
+    <!-- Popup -->
+  <div class="popup popup-about">
+    <div class="content-block">
+    <div class="colse_menu close-popup"><a href="tasks.html" class="close-popup"><i class="fa fa-times"></i></a></div>
+      <p class="thanks"><strong>شكراً</strong> لإستخدامكم النظام الآفضل - نظام ميدان</p>
+    </div>
+  </div>
+      <!--end Popup -->
+
+
+    <!-- Popup -->
+<div class="popup popup-notes">
+  <div class="list-block">
+        <div class="item-inner">
+          <div class="item-title label">الملاحظة</div>
+          <div class="item-input">
+            <textarea id="noteText" placeholder='الملاحظة'></textarea>
+          </div>
+        </div>
+    <div class="row">
+      <div class="col-10"></div>
+      <div class="col-33">
+          <a href="#" class="saveNotes button button-fill color-green">حفظ</a>
+      </div> 
+      <div class="col-33">   
+          <a href="#" class="button button-fill color-red close-popup">الغاء</a>
+      </div>    
+      <div class="col-10"></div> 
+    </div>
+  </div>
+</div>
+      <!--end Popup -->      
+
+
+    <!-- Popup -->
+
+    <!--end Popup -->
+
+
+    <script type="text/javascript" src="plupload.full.min.js"></script>
+    <script type="text/javascript" src="jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="Framework7-1.4.0/dist/js/framework7.min.js"></script>
+
+    <script src="handlebars-v4.0.5.js"></script>
+
+	
+	<script type="text/javascript" src="Framework7-1.4.0/custom-js/hmm.js"></script>
+
+    <script type="text/javascript" src="Framework7-1.4.0/dist/js/my-app.js"></script>
+    
+  </body>
+</html> 
